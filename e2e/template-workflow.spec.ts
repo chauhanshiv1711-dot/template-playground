@@ -1,20 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Template Workflow', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await expect(page.locator('.app-spinner-container')).toBeHidden({ timeout: 30000 });
-  });
-
-  test('should have sample dropdown and change templates', async ({ page }) => {
-    // Find the sample dropdown button
-    const dropdown = page.getByRole('button', { name: 'Load sample dropdown' });
-    await expect(dropdown).toBeVisible();
-
-    // Click to open dropdown
-    await dropdown.click();
-
-    // Wait for dropdown options to appear
+  or dropdown options to appear
     const helloWorldOption = page.getByText('Hello World', { exact: true });
     await expect(helloWorldOption).toBeVisible({ timeout: 5000 });
 
